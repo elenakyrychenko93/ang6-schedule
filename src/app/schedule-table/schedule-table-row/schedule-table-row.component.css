@@ -1,0 +1,18 @@
+.schedule-row {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  border: 1px solid gray;
+}
+.schedule-row li {
+  list-style: none;
+
+}
+.schedule-row li.start-time, .schedule-row li.end-time {
+  width: 20%;
+}
+.description {
+  width: 60%;
+}
