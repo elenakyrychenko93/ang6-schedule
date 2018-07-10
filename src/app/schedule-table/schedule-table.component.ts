@@ -1,5 +1,5 @@
 import {Component, Input, OnInit, Output} from '@angular/core';
-import {HEROES} from '../data';
+import {Hero} from '../data';
 
 @Component({
   selector: 'app-schedule-table',
@@ -8,13 +8,14 @@ import {HEROES} from '../data';
 })
 export class ScheduleTableComponent implements OnInit {
   // editModeValue = false;
+  heroes = Hero;
   constructor() { }
 
   ngOnInit() {
   }
   onDelete(id) {
     console.log('wow', id);
-    this.HEROES.deleteItem(id);
+    this.heroes.deleteItem(id);
   }
   // onChanged(changeModeVal:any){
   //   this.editModeValue = changeModeVal;

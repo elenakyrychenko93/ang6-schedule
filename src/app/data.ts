@@ -7,8 +7,9 @@ export class Hero {
 
 
   deleteItem = (id) => {
+    console.log('del');
     for(let i = 0; i < HEROES.length; i++) {
-      if(HEROES[i].id == id) {
+      if(HEROES[i].id === id) {
         HEROES.splice(i, 1);
       }
     }

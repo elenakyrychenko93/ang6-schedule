@@ -19,8 +19,8 @@ export class ScheduleTableRowComponent implements OnInit {
   @Output() onDelete = new EventEmitter<string>();
 
   deleteItem(id) {
-    this.onDelete.emit(id);
     console.log(id);
+    this.onDelete.emit(id);
   }
 
   // deleteItem($event, id) {
