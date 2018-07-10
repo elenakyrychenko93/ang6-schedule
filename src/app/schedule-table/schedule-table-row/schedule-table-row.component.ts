@@ -16,9 +16,17 @@ export class ScheduleTableRowComponent implements OnInit {
   ngOnInit() {
   }
 
-  deleteItem($event) {
-    console.log($event);
+  @Output() onDelete = new EventEmitter<string>();
+
+  deleteItem(id) {
+    this.onDelete.emit(id);
+    console.log(id);
   }
+
+  // deleteItem($event, id) {
+  //   this.onDelete.emit(id);
+  //   console.log($event);
+  // }
   // changeMode() {
   //   this.editModeValue = !this.editModeValue;
   // }

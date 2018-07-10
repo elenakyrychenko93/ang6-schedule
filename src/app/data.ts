@@ -4,6 +4,15 @@ export class Hero {
   description: string;
   edit: boolean;
   id: string;
+
+
+  deleteItem = (id) => {
+    for(let i = 0; i < HEROES.length; i++) {
+      if(HEROES[i].id == id) {
+        HEROES.splice(i, 1);
+      }
+    }
+  };
 }
 
 export const HEROES: Hero[] = [
@@ -12,13 +21,6 @@ export const HEROES: Hero[] = [
   { startTime: 13, endTime: 20, description: 'Mr. Nice', edit: false, id: 3 },
 ];
 
-// deleteItem = (id) => {
-//   for(let i = 0; i < HEROES.length; i++) {
-//     if(HEROES[i].id == id) {
-//       HEROES.splice(i, 1);
-//     }
-//   }
-// };
 //
 // addItem = (elem) => {
 //   HEROES.push(elem);

@@ -51,6 +51,6 @@
     <button *ngIf="hero.edit" type="button" (click)="hero.edit = false">back</button>
   </li>
   <li class="action">
-    <button type="button" (click)="deleteItem($event)">delete</button>
+    <button type="button" (click)="deleteItem(hero.id)">delete</button>
   </li>
 </ul>
