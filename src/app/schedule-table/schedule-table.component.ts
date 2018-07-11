@@ -6,21 +6,18 @@ import {Hero} from '../data';
   templateUrl: './schedule-table.component.html',
   styleUrls: ['./schedule-table.component.css']
 })
-export class ScheduleTableComponent implements OnInit {
+export class ScheduleTableComponent {
   // editModeValue = false;
   heroes = Hero;
   constructor() { }
 
-  ngOnInit() {
-  }
   onDelete(id) {
-    console.log('wow', id);
     this.heroes.deleteItem(id);
   }
-  // onChanged(changeModeVal:any){
-  //   this.editModeValue = changeModeVal;
-  //   console.log(changeModeVal);
-  // }
+  onEdit(data) {
+    console.log(data);
+    this.heroes.addItem(data);
+  }
 
 }
 
