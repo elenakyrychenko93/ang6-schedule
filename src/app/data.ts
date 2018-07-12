@@ -6,7 +6,7 @@ export class Hero {
   id: string;
 
 
-  deleteItem = (id) => {
+  static deleteItem = (id) => {
     console.log('del');
     for(let i = 0; i < HEROES.length; i++) {
       if(HEROES[i].id === id) {
