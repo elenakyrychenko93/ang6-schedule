@@ -1,5 +1,6 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {HEROES} from '../../data';
+import {Hero} from '../../data';
 
 
 @Component({
@@ -9,6 +10,10 @@ import {HEROES} from '../../data';
 })
 export class ScheduleTableRowComponent implements OnInit {
   heroes = HEROES;
+  startTime: string;
+  endTime: string;
+  description: string;
+  inputsData;
   // editModeValue = false;
   // @Input editModeValue;
   constructor() { }
@@ -20,7 +25,6 @@ export class ScheduleTableRowComponent implements OnInit {
   @Output() onEdit = new EventEmitter<any>();
 
   deleteItem(id) {
-    console.log(id);
     this.onDelete.emit(id);
   }
   editItem(id, data) {
@@ -34,6 +38,27 @@ export class ScheduleTableRowComponent implements OnInit {
     this.onEdit.emit(id, data);
   }
 
+  openEditMode(hero) {
+    hero.edit = true;
+      this.inputsData = {
+        startTime: hero.startTime,
+        endTime: hero.endTime,
+        description: hero.description
+    };
+    console.log(this.inputsData);
+  }
+  saveItem(id, hero) {
+    console.log(id);
+    hero.edit = false;
+    this.onEdit.emit({id: id, inputsData: this.inputsData});
+  }
+  closeEditMode(hero) {
+    hero.edit = false;
+    hero.startTime = this.inputsData.startTime;
+    hero.endTime = this.inputsData.endTime;
+    hero.description = this.inputsData.description;
+    // console.log(this.inputsData);
+  }
   // deleteItem($event, id) {
   //   this.onDelete.emit(id);
   //   console.log($event);

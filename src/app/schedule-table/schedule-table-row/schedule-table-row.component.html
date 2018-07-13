@@ -1,4 +1,42 @@
 
+<ul *ngFor="let hero of heroes; let i = index" class="schedule-row">
+
+  <li class="start-time">
+    <span *ngIf="!hero.edit">{{ hero.startTime }}</span>
+    <input
+      *ngIf="hero.edit"
+      [(ngModel)]="hero.startTime"
+      value="{{ hero.startTime }}"
+    >
+  </li>
+  <li class="end-time">
+    <span *ngIf="!hero.edit">{{ hero.endTime }}</span>
+    <input
+      *ngIf="hero.edit"
+      [(ngModel)]="hero.endTime"
+      value="{{ hero.endTime }}">
+  </li>
+  <li class="description">
+    <span *ngIf="!hero.edit">{{ hero.description }}</span>
+    <input
+      *ngIf="hero.edit"
+      type="text"
+      [(ngModel)]="hero.description"
+      value="{{ hero.description }}">
+  </li>
+  <li class="action">
+    <button *ngIf="!hero.edit" type="button" (click)="openEditMode(hero)">update</button>
+    <button *ngIf="hero.edit" type="button" (click)="saveItem(hero.id, hero)">save</button>
+    <button *ngIf="hero.edit" type="button" (click)="closeEditMode(hero)">back</button>
+  </li>
+  <li class="action">
+    <button type="button" (click)="deleteItem(hero.id)">delete</button>
+  </li>
+
+</ul>
+
+
+
 <!--<app-schedule-table-row-static *ngIf="editModeValue == false"></app-schedule-table-row-static>-->
 <!--<app-schedule-table-row-edit *ngIf="editModeValue == true"></app-schedule-table-row-edit>-->
 
@@ -32,25 +70,4 @@
   <!--</li>-->
 <!--</ul>-->
 
-<ul *ngFor="let hero of heroes; let i = index" class="schedule-row">
-  <li class="start-time">
-    <span *ngIf="!hero.edit">{{ hero.startTime }}</span>
-    <input *ngIf="hero.edit" type="text" [ngModel]="startTime" name="startTime" value="{{ hero.startTime }}">
-  </li>
-  <li class="end-time">
-    <span *ngIf="!hero.edit">{{ hero.endTime }}</span>
-    <input *ngIf="hero.edit" type="text" [ngModel]="endTime" name="endTime" value="{{ hero.endTime }}">
-  </li>
-  <li class="description">
-    <span *ngIf="!hero.edit">{{ hero.description }}</span>
-    <input *ngIf="hero.edit" type="text" [ngModel]="description" name="description" value="{{ hero.description }}">
-  </li>
-  <li class="action">
-    <button *ngIf="!hero.edit" type="button" (click)="hero.edit = true">update</button>
-    <button *ngIf="hero.edit" type="button" (click)="editItem(hero.id)">save</button>
-    <button *ngIf="hero.edit" type="button" (click)="hero.edit = false">back</button>
-  </li>
-  <li class="action">
-    <button type="button" (click)="deleteItem(hero.id)">delete</button>
-  </li>
-</ul>
+

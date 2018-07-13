@@ -8,7 +8,7 @@ import { ScheduleTableRowComponent } from './schedule-table/schedule-table-row/s
 import { CommonModule } from '@angular/common';
 import { ScheduleTableRowEditComponent } from './schedule-table/schedule-table-row/schedule-table-row-edit/schedule-table-row-edit.component';
 import { ScheduleTableRowStaticComponent } from './schedule-table/schedule-table-row/schedule-table-row-static/schedule-table-row-static.component';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
