@@ -1,18 +1,52 @@
 .schedule-row {
   width: 100%;
-  max-width: 800px;
+  max-width: 1200px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  margin: 0;
-  border: 1px solid gray;
+  margin: 0px auto;
+  padding: 0;
+  border-top: 1px solid #d0d0d0;
+  border-right: 1px solid #d0d0d0;
+  border-left: 1px solid #d0d0d0;
+  background: #f1f1f1;
+}
+.schedule-row:last-child {
+  border-bottom: 1px solid #d0d0d0;
 }
 .schedule-row li {
   list-style: none;
-
+  padding: 15px;
+  border-left: 1px solid #d0d0d0;
+}
+.schedule-row li:first-child {
+  border-left: none;
 }
 .schedule-row li.start-time, .schedule-row li.end-time {
-  width: 20%;
+  width: 15%;
 }
 .description {
-  width: 60%;
+  width: 70%;
+}
+input {
+  padding: 8px;
+  border: 1px solid #e0e0e0;
+  /*box-shadow: inset 1px 1px 10px 0px rgba(132, 132, 132, 0.23921568627450981);*/
+}
+
+button {
+  padding: 7px 20px;
+  color: white;
+  border: none;
+  text-transform: uppercase;
+  /*font-family: 'Indie Flower', cursive;*/
+}
+.goToEdit, .save {
+  background: green;
+}
+.back {
+  background: blue;
+}
+.delete {
+  background: red;
 }

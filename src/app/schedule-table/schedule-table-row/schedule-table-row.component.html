@@ -4,6 +4,7 @@
   <li class="start-time">
     <span *ngIf="!hero.edit">{{ hero.startTime }}</span>
     <input
+      type="time"
       *ngIf="hero.edit"
       [(ngModel)]="hero.startTime"
       value="{{ hero.startTime }}"
@@ -12,6 +13,7 @@
   <li class="end-time">
     <span *ngIf="!hero.edit">{{ hero.endTime }}</span>
     <input
+      type="time"
       *ngIf="hero.edit"
       [(ngModel)]="hero.endTime"
       value="{{ hero.endTime }}">
@@ -25,12 +27,15 @@
       value="{{ hero.description }}">
   </li>
   <li class="action">
-    <button *ngIf="!hero.edit" type="button" (click)="openEditMode(hero)">update</button>
-    <button *ngIf="hero.edit" type="button" (click)="saveItem(hero.id, hero)">save</button>
-    <button *ngIf="hero.edit" type="button" (click)="closeEditMode(hero)">back</button>
+    <button *ngIf="!hero.edit" class="goToEdit" type="button" (click)="openEditMode(hero)">update</button>
+    <button *ngIf="hero.edit" class="save" type="button" (click)="saveItem(hero.id, hero)">save</button>
+
+  </li>
+  <li class="action" *ngIf="hero.edit">
+    <button  type="button" class="back" (click)="closeEditMode(hero)">back</button>
   </li>
   <li class="action">
-    <button type="button" (click)="deleteItem(hero.id)">delete</button>
+    <button type="button" class="delete" (click)="deleteItem(hero.id)">delete</button>
   </li>
 
 </ul>

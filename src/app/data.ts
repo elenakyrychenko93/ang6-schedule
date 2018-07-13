@@ -1,12 +1,14 @@
+import {Time} from '@angular/common';
+
 export class Hero {
 
-  startTime: number;
-  endTime: number;
+  startTime: Time;
+  endTime: Time;
   description: string;
   edit: boolean;
   id: string;
 
-  constructor(startTime: number, endTime: number, description: string, edit: boolean, id: string) {
+  constructor(startTime: Time, endTime: Time, description: string, edit: boolean, id: string) {
     this.startTime = startTime;
     this.endTime = endTime;
     this.description = description;
@@ -14,27 +16,46 @@ export class Hero {
     this.id = id;
   }
 
+  static getData = () =>  {
+    return fetch('https://schedule-a6dc5.firebaseio.com/schedule.json')
+      .then(function(response){
+        return response.json();
+      });
+  };
 
-  static deleteItem = (id) => {
-    console.log('del');
-    for (let i = 0; i < HEROES.length; i++) {
-      if (HEROES[i].id === id) {
-        HEROES.splice(i, 1);
+  static addAction = (item) => {
+    return fetch('https://schedule-a6dc5.firebaseio.com/schedule.json', {
+      method: 'post',
+      body: JSON.stringify(item)
+    }).then(function(response){
+      return response.json();
+    });
+  };
+
+  static deleteAction = (id) => {
+    return fetch('https://schedule-a6dc5.firebaseio.com/schedule/' + id + '.json', {
+      method: 'DELETE',
+    }).then(function(response){
+      for (let i = 0; i < HEROES.length; i++) {
+        if (HEROES[i].id === id) {
+          HEROES.splice(i, 1);
+        }
       }
-    }
-  }
+      return response.json();
+    });
+  };
 
-  static addItem = (data) => {
-    console.log(data);
-    // HEROES.push(elem);
-  }
+  static updateAction = (id, item) => {
+    return fetch('https://schedule-a6dc5.firebaseio.com/schedule/' + id + '.json', {
+      method: 'PATCH',
+      body: JSON.stringify(item)
+    }).then(function(response){
+      return response.json();
+    });
+  };
 }
 
-export const HEROES: Hero[] = [
-  new Hero(11, 20, 'Mr. Nice', false, '1q'),
-  new Hero(12, 21, 'Mr. Nice', false, '2q'),
-  new Hero(13, 22, 'Mr. Nice', false, '3q')
-];
+export const HEROES: Hero[] = [];
 
 //
 

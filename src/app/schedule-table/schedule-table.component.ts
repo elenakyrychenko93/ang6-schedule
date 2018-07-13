@@ -12,12 +12,16 @@ export class ScheduleTableComponent {
   constructor() { }
 
   onDelete(id) {
-    this.heroes.deleteItem(id);
+    this.heroes.deleteAction(id);
   }
   onEdit(data) {
-    console.log(data);
-    this.heroes.addItem(data);
+    // console.log(data.inputsData);
+    this.heroes.updateAction(data.id, data.inputsData);
   }
+  // onAdd(data) {
+  //   console.log(data);
+  //   this.heroes.addAction(data);
+  // }
 
 }
 

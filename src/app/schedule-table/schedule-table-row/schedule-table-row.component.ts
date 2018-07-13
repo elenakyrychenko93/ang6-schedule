@@ -10,12 +10,8 @@ import {Hero} from '../../data';
 })
 export class ScheduleTableRowComponent implements OnInit {
   heroes = HEROES;
-  startTime: string;
-  endTime: string;
-  description: string;
-  inputsData;
-  // editModeValue = false;
-  // @Input editModeValue;
+  oldAction;
+  newAction;
   constructor() { }
 
   ngOnInit() {
@@ -27,37 +23,31 @@ export class ScheduleTableRowComponent implements OnInit {
   deleteItem(id) {
     this.onDelete.emit(id);
   }
-  editItem(id, data) {
-    console.log(id);
-    editInfo = {
-      startTime: startTime.value,
-      endTime: endTime.value,
-      description: description.value
-    };
-    console.log(editInfo);
-    this.onEdit.emit(id, data);
-  }
 
   openEditMode(hero) {
     hero.edit = true;
-      this.inputsData = {
+      this.oldAction = {
         startTime: hero.startTime,
         endTime: hero.endTime,
         description: hero.description
     };
-    console.log(this.inputsData);
   }
+
   saveItem(id, hero) {
-    console.log(id);
+    this.newAction = {
+      startTime: hero.startTime,
+      endTime: hero.endTime,
+      description: hero.description
+    };
     hero.edit = false;
-    this.onEdit.emit({id: id, inputsData: this.inputsData});
+    this.onEdit.emit({id: id, inputsData: this.newAction});
   }
+
   closeEditMode(hero) {
     hero.edit = false;
-    hero.startTime = this.inputsData.startTime;
-    hero.endTime = this.inputsData.endTime;
-    hero.description = this.inputsData.description;
-    // console.log(this.inputsData);
+    hero.startTime = this.oldAction.startTime;
+    hero.endTime = this.oldAction.endTime;
+    hero.description = this.oldAction.description;
   }
   // deleteItem($event, id) {
   //   this.onDelete.emit(id);

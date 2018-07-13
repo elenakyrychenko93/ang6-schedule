@@ -6,9 +6,8 @@ import { ScheduleTableComponent } from './schedule-table/schedule-table.componen
 import { HeaderComponent } from './header/header.component';
 import { ScheduleTableRowComponent } from './schedule-table/schedule-table-row/schedule-table-row.component';
 import { CommonModule } from '@angular/common';
-import { ScheduleTableRowEditComponent } from './schedule-table/schedule-table-row/schedule-table-row-edit/schedule-table-row-edit.component';
-import { ScheduleTableRowStaticComponent } from './schedule-table/schedule-table-row/schedule-table-row-static/schedule-table-row-static.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddFormComponent } from './add-form/add-form.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +15,13 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     ScheduleTableComponent,
     HeaderComponent,
     ScheduleTableRowComponent,
-    ScheduleTableRowEditComponent,
-    ScheduleTableRowStaticComponent
+    AddFormComponent,
   ],
   imports: [
     BrowserModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
