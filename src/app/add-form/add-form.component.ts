@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Hero } from '../data';
+// import {MyService} from '../services/ee-service';
 
 @Component({
   selector: 'app-add-form',
@@ -14,13 +15,18 @@ export class AddFormComponent implements OnInit {
   openText = 'Open form';
   closeText = 'Close form';
   myFirstReactiveForm: FormGroup;
-  formData;
+  formData = 1;
 
   // @Output() onAdd = new EventEmitter<any>();
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,
+              // private myService: MyService
+  ) {
+  }
+
 
   ngOnInit() {
+
     this.initForm();
     this.buttonText = this.openText;
   }
@@ -44,6 +50,15 @@ export class AddFormComponent implements OnInit {
     console.log(this.formData);
     this.heroes.addAction(this.formData);
     // this.onAdd.emit(this.formData);
+
+    // this.myService.mySubject.next(this.formData);
+    // this.myService.mySubject.subscribe(
+    //   value => {
+    //     console.log(value);
+    //     this.heroes.addAction(value);
+    //   }
+    // );
+
   }
 
   isControlInvalid(controlName: string): boolean {

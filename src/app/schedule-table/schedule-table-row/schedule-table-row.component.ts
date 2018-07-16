@@ -12,13 +12,37 @@ export class ScheduleTableRowComponent implements OnInit {
   heroes = HEROES;
   oldAction;
   newAction;
-  constructor() { }
-
-  ngOnInit() {
-  }
+  date;
+  time;
+  speechTime;
+  utterance;
+  intervalHandler;
 
   @Output() onDelete = new EventEmitter<string>();
   @Output() onEdit = new EventEmitter<any>();
+
+  constructor() {
+    this.intervalHandler = setInterval(self => self.getTime(), 5000, this);
+  }
+
+  ngOnInit() {
+
+    // this.utterance = new SpeechSynthesisUtterance(' ');
+    // window.speechSynthesis.speak(this.utterance);
+  }
+
+  getTime() {
+    this.date = new Date();
+    this.time = this.date.getHours()+':'+this.date.getMinutes();
+    this.checkTime(HEROES);
+  }
+
+  checkTime(obj) {
+    for(let item of obj) {
+      console.log(item.startTime);
+      if (obj.startTime === this.time) console.log('alarm');
+    }
+  }
 
   deleteItem(id) {
     this.onDelete.emit(id);

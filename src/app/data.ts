@@ -28,6 +28,8 @@ export class Hero {
       method: 'post',
       body: JSON.stringify(item)
     }).then(function(response){
+      console.log(item);
+      HEROES.push(item);
       return response.json();
     });
   };

@@ -8,6 +8,7 @@ import { ScheduleTableRowComponent } from './schedule-table/schedule-table-row/s
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddFormComponent } from './add-form/add-form.component';
+// import {MyService} from './services/ee-service';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,8 @@ import { AddFormComponent } from './add-form/add-form.component';
     FormsModule,
     ReactiveFormsModule
   ],
+
+  // providers: [MyService],
   providers: [],
   bootstrap: [AppComponent]
 })
