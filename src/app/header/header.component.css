@@ -1,9 +1,24 @@
 header {
-  border-bottom: 1px solid #d0d0d0;
-  background: #f1f1f1;
+  position: relative;
+  border-bottom: 1px solid  #ffce00;
+  background: url("../../assets/images/background-disney.jpg");
+  background-position: 179px -89px;
+  /*background: #f1f1f1;*/
+}
+header:after {
+  position: absolute;
+  content:"";
+  width: 264px;
+  height: 482px;
+  right:20px;
+  top:40px;
+  background: url("../../assets/images/1a70871b15305e44fdde52ed24effce5.png");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 h1 {
   font-family: 'Indie Flower', cursive;
   padding: 30px 20px;
+  color: white;
   margin: 0;
 }

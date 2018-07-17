@@ -1,5 +1,5 @@
 <div class="addForm">
-  <button type="button"(click)="toggleForm()" >{{buttonText}}</button>
+  <button type="button" id="open-form" (click)="toggleForm()" >{{buttonText}}</button>
 </div>
 <form *ngIf="formIsOpened" [formGroup]="myFirstReactiveForm" (submit)="onSubmit()">
 

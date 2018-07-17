@@ -1,4 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  outline: none;
+}
 body {
   margin: 0;
+  height: 100vh;
+  position: relative;
 }
+/*body:after {*/
+  /*position: absolute;*/
+  /*content:"";*/
+  /*width: 264px;*/
+  /*height: 425px;*/
+  /*right:0;*/
+  /*bottom:10px;*/
+  /*background: url("assets/images/nv18.gif");*/
+  /*background-size: contain;*/
+  /*background-repeat: no-repeat;*/
+/*}*/
+

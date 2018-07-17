@@ -1,52 +1,64 @@
 .schedule-row {
-  width: 100%;
   max-width: 1200px;
+  width: 60%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 0px auto;
   padding: 0;
-  border-top: 1px solid #d0d0d0;
-  border-right: 1px solid #d0d0d0;
-  border-left: 1px solid #d0d0d0;
-  background: #f1f1f1;
+  border-top: 1px solid  #bbbbbb;
+  border-right: 1px solid  #bbbbbb;
+  border-left: 1px solid  #bbbbbb;
+  /*background: #f1f1f1;*/
 }
 .schedule-row:last-child {
-  border-bottom: 1px solid #d0d0d0;
+  border-bottom: 1px solid  #bbbbbb;
 }
 .schedule-row li {
   list-style: none;
   padding: 15px;
-  border-left: 1px solid #d0d0d0;
+  border-left: 1px solid  #bbbbbb;
 }
 .schedule-row li:first-child {
   border-left: none;
 }
 .schedule-row li.start-time, .schedule-row li.end-time {
   width: 15%;
+  max-width: 115px;
+  text-align: center;
 }
 .description {
   width: 70%;
 }
 input {
   padding: 8px;
-  border: 1px solid #e0e0e0;
+  border: 1px solid #bbbbbb;
   /*box-shadow: inset 1px 1px 10px 0px rgba(132, 132, 132, 0.23921568627450981);*/
 }
 
 button {
-  padding: 7px 20px;
   color: white;
+  font-weight: bold;
   border: none;
   text-transform: uppercase;
+  padding: 10px 26px;
+  /* background: red; */
+  background-image: url('../../../assets/images/action-button.png');
+  background-size: 167px;
+  background-repeat: no-repeat;
+  background-position: -26px -27px;
+  border-radius: 9px;
   /*font-family: 'Indie Flower', cursive;*/
 }
 .goToEdit, .save {
-  background: green;
+  background-color: #106d00;
+  box-shadow: 1px 1px 19px 1px rgba(16, 109, 0, 0.5);
 }
 .back {
-  background: blue;
+  background-color: #003280;
+  box-shadow: 1px 1px 19px 1px rgba(0, 50, 128, 0.5);
 }
 .delete {
-  background: red;
+  background-color: #a90c0c;
+  box-shadow: 1px 1px 19px 1px rgba(169, 12, 12, 0.5);
 }

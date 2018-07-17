@@ -1,3 +1,15 @@
 .mainContent {
   margin-top: 50px;
+  position: relative;
 }
+.mainContent:before {
+  position: absolute;
+  content:"";
+  width: 264px;
+  height: 425px;
+  top:10px;
+  background: url("../../assets/images/Ariel_29.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+

@@ -24,9 +24,7 @@ export class AddFormComponent implements OnInit {
   ) {
   }
 
-
   ngOnInit() {
-
     this.initForm();
     this.buttonText = this.openText;
   }
@@ -41,13 +39,11 @@ export class AddFormComponent implements OnInit {
     if (this.myFirstReactiveForm.invalid) {
       Object.keys(controls)
         .forEach(controlName => controls[controlName].markAsTouched());
-
       return;
     }
 
-    /** TODO: Обработка данных формы */
+    /*Обработка данных формы */
     this.formData = this.myFirstReactiveForm.value;
-    console.log(this.formData);
     this.heroes.addAction(this.formData);
     // this.onAdd.emit(this.formData);
 

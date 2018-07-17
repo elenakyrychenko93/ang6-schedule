@@ -1,6 +1,7 @@
 import {Component, ElementRef, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {HEROES} from '../../data';
 import {Hero} from '../../data';
+import {Time} from '@angular/common';
 
 
 @Component({
@@ -27,20 +28,34 @@ export class ScheduleTableRowComponent implements OnInit {
 
   ngOnInit() {
 
-    // this.utterance = new SpeechSynthesisUtterance(' ');
-    // window.speechSynthesis.speak(this.utterance);
   }
 
   getTime() {
     this.date = new Date();
-    this.time = this.date.getHours()+':'+this.date.getMinutes();
+    this.time = this.addZero(this.date.getHours())+':'+this.addZero(this.date.getMinutes());
+    // this.time = this.date.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
+    console.log(this.time);
     this.checkTime(HEROES);
+  }
+
+  addZero(i) {
+    if (i < 10) {
+      i = "0" + i;
+    }
+    return i;
   }
 
   checkTime(obj) {
     for(let item of obj) {
-      console.log(item.startTime);
-      if (obj.startTime === this.time) console.log('alarm');
+      // console.log(item.startTime);
+      if (item.startTime == this.time) {
+        console.log(item.startTime, item.description);
+        this.utterance = new SpeechSynthesisUtterance(item.description);
+        this.utterance.lang = 'ru-RU';
+        this.utterance.rate = 0.7;
+        this.utterance.pitch = 1.2;
+        window.speechSynthesis.speak(this.utterance);
+      };
     }
   }
 

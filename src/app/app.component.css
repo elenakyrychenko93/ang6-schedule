@@ -1,0 +1,9 @@
+footer {
+  position: absolute;
+  bottom: 0px;
+  height: 150px;
+  width: 100%;
+  border-top: 1px solid  #ffce00;
+  background: url("../assets/images/background-disney.jpg");
+  background-position: 172px -360px;
+}
