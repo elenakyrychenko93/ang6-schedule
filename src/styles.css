@@ -4,7 +4,11 @@
 }
 body {
   margin: 0;
-  height: 100vh;
+
+}
+.container {
+  height: 100%;
+  min-height: 100vh;
   position: relative;
 }
 /*body:after {*/
